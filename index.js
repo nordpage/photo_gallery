@@ -12,8 +12,15 @@ photos.forEach(photo => {
 
     photo.addEventListener('click', function (){
         setDefaults();
-        photo.style.transform = "rotate(0) scale(1.1,1.1)";
-        photo.style.zIndex = "6";
+        const clicked = photo.dataset.clicked;
+        if (clicked === "false") {
+            photo.style.transform = "rotate(0) scale(1.1,1.1)";
+            photo.style.zIndex = "6";
+        } else {
+            setDefaults()
+        }
+        photo.setAttribute('data-clicked', clicked === 'false' ? 'true' : 'false')
+
     })
 })
 
